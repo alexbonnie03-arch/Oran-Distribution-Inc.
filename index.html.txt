@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oran Distribution Inc. — Global Sourcing & Procurement</title>
+    <meta name="description" content="Oran Distribution Inc. — Your trusted partner for international sourcing, procurement, and supply chain solutions." />
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after {
+            margin: 0; padding: 0; box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #1e293b;
+            line-height: 1.7;
+            background: #ffffff;
+        }
+        img {
+            max-width: 100%; display: block;
+        }
+        a {
+            text-decoration: none; color: inherit;
+        }
+        .container {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+        }
+        .section-padding {
+            padding: 90px 0;
+        }
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #2563eb;
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 20px;
+            line-height: 1.25;
+        }
+        .section-sub {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 620px;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .mx-auto {
+            margin-left: auto; margin-right: auto;
+        }
+
+        /* ========== BUTTONS ========== */
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600; font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer; border: none;
+        }
+        .btn-primary {
+            background: #2563eb; color: #fff;
+        }
+        .btn-primary:hover {
+            background: #1d4ed8; transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+        }
+        .btn-outline {
+            background: transparent; color: #fff;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+        .btn-outline:hover {
+            border-color: #fff; background: rgba(255,255,255,0.08);
+            transform: translateY(-2px);
+        }
+
+        /* ========== NAVIGATION ========== */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        nav .nav-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 18px 0;
+        }
+        nav .logo {
+            font-size: 1.4rem; font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+        }
+        nav .logo span {
+            color: #2563eb;
+        }
+        .nav-links {
+            list-style: none; display: flex; gap: 32px;
+            align-items: center;
+        }
+        .nav-links a {
+            font-size: 0.9rem; font-weight: 500;
+            color: #475569; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #2563eb; }
+        .nav-links .btn-nav {
+            background: #2563eb; color: #fff !important;
+            padding: 10px 24px; border-radius: 50px;
+            font-weight: 600;
+        }
+        .nav-links .btn-nav:hover {
+            background: #1d4ed8;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.8rem; color: #0f172a;
+            cursor: pointer; background: none; border: none;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex; align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: #0f172a;
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            z-index: 0;
+        }
+        .hero-bg img {
+            width: 100%; height: 100%;
+            object-fit: cover; object-position: center;
+            opacity: 0.35;
+        }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(15,23,42,0.92) 0%, rgba(30,41,59,0.70) 100%);
+            z-index: 1;
+        }
+        .hero .container {
+            position: relative; z-index: 2;
+            padding-top: 80px; padding-bottom: 80px;
+        }
+        .hero-content {
+            max-width: 720px;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            color: #93c5fd;
+            font-size: 0.8rem; font-weight: 600;
+            padding: 6px 16px; border-radius: 50px;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+        .hero h1 {
+            font-size: 3.6rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        .hero h1 span {
+            color: #60a5fa;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            max-width: 580px;
+            margin-bottom: 36px;
+            line-height: 1.8;
+        }
+        .hero-buttons {
+            display: flex; gap: 16px; flex-wrap: wrap;
+        }
+        .hero-stats {
+            display: flex; gap: 48px; margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .hero-stats .stat h3 {
+            font-size: 2rem; font-weight: 700; color: #fff;
+        }
+        .hero-stats .stat p {
+            font-size: 0.85rem; color: #94a3b8; margin-bottom: 0;
+        }
+
+        /* ========== CLIENTS / SOCIAL PROOF ========== */
+        .clients {
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .clients p {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #94a3b8;
+            margin-bottom: 28px;
+        }
+        .client-logos {
+            display: flex; justify-content: center; align-items: center;
+            gap: 48px; flex-wrap: wrap;
+        }
+        .client-logos span {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #94a3b8;
+            letter-spacing: 1px;
+            opacity: 0.55;
+            transition: opacity 0.3s;
+        }
+        .client-logos span:hover { opacity: 0.9; }
+
+        /* ========== SERVICES ========== */
+        .services {
+            background: #ffffff;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 56px;
+        }
+        .service-card {
+            background: #f8fafc;
+            border: 1px solid #eef2f6;
+            border-radius: 16px;
+            padding: 40px 32px;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+            border-color: #dbeafe;
+        }
+        .service-card .icon {
+            width: 52px; height: 52px;
+            background: #eff6ff;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 22px;
+            font-size: 1.5rem;
+        }
+        .service-card h3 {
+            font-size: 1.2rem; font-weight: 700;
+            color: #0f172a; margin-bottom: 10px;
+        }
+        .service-card p {
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        /* ========== ABOUT / APPROACH ========== */
+        .about {
+            background: #f8fafc;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-image {
+            border-radius: 16px;
+            overflow: hidden;
+            height: 440px;
+            background: #e2e8f0;
+        }
+        .about-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .about-text h2 {
+            font-size: 2.2rem; font-weight: 700;
+            color: #0f172a; margin-bottom: 18px;
+        }
+        .about-text p {
+            color: #475569;
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+        }
+        .about-text .about-list {
+            list-style: none; margin-top: 20px;
+        }
+        .about-text .about-list li {
+            padding: 8px 0; display: flex; align-items: center; gap: 12px;
+            color: #334155; font-weight: 500;
+        }
+        .about-text .about-list li::before {
+            content: "✓";
+            color: #2563eb;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* ========== WHY US ========== */
+        .why-us {
+            background: #ffffff;
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 56px;
+        }
+        .why-card {
+            background: #f8fafc;
+            border: 1px solid #eef2f6;
+            border-radius: 14px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .why-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.05);
+        }
+        .why-card .num {
+            font-size: 2.2rem; font-weight: 800;
+            color: #2563eb;
+            margin-bottom: 8px;
+        }
+        .why-card h4 {
+            font-size: 1.05rem; font-weight: 700;
+            color: #0f172a; margin-bottom: 8px;
+        }
+        .why-card p {
+            font-size: 0.9rem; color: #64748b; line-height: 1.6;
+        }
+
+        /* ========== TESTIMONIAL ========== */
+        .testimonial {
+            background: #0f172a;
+            color: #fff;
+        }
+        .testimonial .section-title { color: #fff; }
+        .testimonial .section-sub { color: #94a3b8; }
+        .testimonial-card {
+            max-width: 720px; margin: 48px auto 0;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 44px 40px;
+        }
+        .testimonial-card .quote {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #cbd5e1;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+        .testimonial-card .author {
+            display: flex; align-items: center; gap: 16px;
+        }
+        .testimonial-card .author-avatar {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            background: #334155;
+            overflow: hidden;
+        }
+        .testimonial-card .author-avatar img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .testimonial-card .author-info strong {
+            display: block; font-weight: 700;
+        }
+        .testimonial-card .author-info span {
+            font-size: 0.85rem; color: #94a3b8;
+        }
+
+        /* ========== INDUSTRIES ========== */
+        .industries {
+            background: #f8fafc;
+        }
+        .industries-tags {
+            display: flex; flex-wrap: wrap;
+            justify-content: center; gap: 12px;
+            margin-top: 40px;
+        }
+        .industries-tags span {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem; font-weight: 500;
+            color: #334155;
+            transition: all 0.25s;
+        }
+        .industries-tags span:hover {
+            background: #2563eb; color: #fff; border-color: #2563eb;
+        }
+
+        /* ========== CONTACT ========== */
+        .contact {
+            background: #ffffff;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 56px;
+            align-items: start;
+        }
+        .contact-info h3 {
+            font-size: 1.5rem; font-weight: 700;
+            color: #0f172a; margin-bottom: 16px;
+        }
+        .contact-info p {
+            color: #475569; margin-bottom: 28px;
+        }
+        .contact-detail {
+            display: flex; align-items: center; gap: 16px;
+            margin-bottom: 18px;
+        }
+        .contact-detail .cd-icon {
+            width: 44px; height: 44px;
+            background: #eff6ff;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; flex-shrink: 0;
+        }
+        .contact-detail strong {
+            display: block; font-size: 0.9rem;
+        }
+        .contact-detail span {
+            font-size: 0.85rem; color: #64748b;
+        }
+
+        form {
+            background: #f8fafc;
+            border: 1px solid #eef2f6;
+            border-radius: 16px;
+            padding: 40px;
+        }
+        form .form-row {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+        }
+        form label {
+            display: block;
+            font-size: 0.85rem; font-weight: 600;
+            color: #334155; margin-bottom: 6px;
+        }
+        form input, form textarea, form select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #d1d9e6;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background: #fff;
+            transition: border 0.2s;
+            margin-bottom: 18px;
+        }
+        form input:focus, form textarea:focus {
+            outline: none; border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+        }
+        form textarea { resize: vertical; min-height: 120px; }
+        .form-status {
+            margin-top: 12px; font-weight: 600; font-size: 0.95rem;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 48px 0 32px;
+        }
+        footer .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        footer h4 {
+            color: #fff; font-weight: 700;
+            margin-bottom: 16px; font-size: 1rem;
+        }
+        footer p {
+            font-size: 0.9rem; line-height: 1.7;
+        }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 10px; }
+        footer ul a {
+            font-size: 0.9rem; color: #94a3b8;
+            transition: color 0.2s;
+        }
+        footer ul a:hover { color: #60a5fa; }
+        footer .bottom {
+            text-align: center; padding-top: 24px;
+            font-size: 0.85rem;
+        }
+        footer .logo {
+            font-size: 1.3rem; font-weight: 800;
+            color: #fff; margin-bottom: 12px;
+        }
+        footer .logo span { color: #60a5fa; }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 992px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            footer .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero h1 { font-size: 2.8rem; }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute; top: 100%; left: 0; right: 0;
+                background: rgba(255,255,255,0.98);
+                backdrop-filter: blur(16px);
+                flex-direction: column; gap: 0;
+                padding: 16px 24px;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            .nav-links.open { display: flex; }
+            .nav-links li { width: 100%; }
+            .nav-links a {
+                display: block; padding: 14px 0;
+                border-bottom: 1px solid #f1f5f9;
+            }
+            .nav-links .btn-nav { text-align: center; margin-top: 8px; }
+            .hamburger { display: block; }
+
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+            .hero-stats { gap: 24px; flex-wrap: wrap; }
+            .hero-stats .stat h3 { font-size: 1.6rem; }
+
+            .services-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr 1fr; }
+            .section-title { font-size: 1.8rem; }
+            .form-row { grid-template-columns: 1fr; }
+            footer .footer-grid { grid-template-columns: 1fr; }
+            .testimonial-card { padding: 28px 20px; }
+        }
+        @media (max-width: 480px) {
+            .why-grid { grid-template-columns: 1fr; }
+            .hero-buttons .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ====== NAV ====== -->
+<nav>
+    <div class="container nav-inner">
+        <div class="logo">Oran<span>.</span></div>
+        <button class="hamburger" aria-label="Menu">☰</button>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#industries">Industries</a></li>
+            <li><a href="#contact" class="btn-nav">Get in Touch</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ====== HERO ====== -->
+<section class="hero" id="home">
+    <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1568021454682-48daa8ef8ff8?w=1600&q=80"
+             alt="Cargo container ship at sea" loading="lazy" />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">✦ Trusted Global Sourcing Partner</div>
+            <h1>Your Bridge to<br /><span>World-Class</span> Manufacturing</h1>
+            <p>
+                Oran Distribution Inc. connects businesses with verified manufacturers
+                and suppliers worldwide — delivering strategic procurement, quality
+                assurance, and end-to-end supply chain confidence.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Start a Conversation →</a>
+                <a href="#services" class="btn btn-outline">Explore Our Services</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3>50+</h3>
+                    <p>Global Markets</p>
+                </div>
+                <div class="stat">
+                    <h3>200+</h3>
+                    <p>Trusted Suppliers</p>
+                </div>
+                <div class="stat">
+                    <h3>99%</h3>
+                    <p>Delivery Reliability</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== SOCIAL PROOF / CLIENTS ====== -->
+<section class="clients">
+    <div class="container">
+        <p>Trusted by businesses across industries</p>
+        <div class="client-logos">
+            <span>GLOBALTRADE</span>
+            <span>⛓ SUPPLYCO</span>
+            <span>✦ NORTHERN IMPORTS</span>
+            <span>◈ PACIFIC SOURCE</span>
+            <span>⬡ ATLANTIC GROUP</span>
+        </div>
+    </div>
+</section>
+
+<!-- ====== SERVICES ====== -->
+<section class="services section-padding" id="services">
+    <div class="container">
+        <div class="text-center">
+            <span class="section-label">What We Do</span>
+            <h2 class="section-title">Comprehensive Sourcing & Procurement</h2>
+            <p class="section-sub mx-auto">
+                From manufacturer verification to logistics coordination — we manage every
+                step so you can focus on growth.
+            </p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon">🔍</div>
+                <h3>Global Product Sourcing</h3>
+                <p>Identify and connect with the right manufacturers across international markets tailored to your product requirements and budget.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">✅</div>
+                <h3>Manufacturer Verification</h3>
+                <p>Rigorous vetting and on-the-ground audits to ensure every supplier meets quality, compliance, and ethical standards.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">🤝</div>
+                <h3>Negotiation & Procurement</h3>
+                <p>Strategic supplier negotiations, contract management, and competitive pricing — always aligned with your commercial goals.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">🏷️</div>
+                <h3>OEM & Private Label</h3>
+                <p>Custom product development, branding, and packaging solutions that bring your unique vision to market.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">📋</div>
+                <h3>Quality Assurance</h3>
+                <p>End-to-end quality control, compliance checks, and production monitoring to safeguard your product standards.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">🚢</div>
+                <h3>Logistics & Supply Chain</h3>
+                <p>Seamless coordination of shipping, warehousing, and delivery — ensuring your products arrive on time, every time.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== ABOUT / APPROACH ====== -->
+<section class="about section-padding" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80"
+                     alt="Professional team collaboration in modern office" loading="lazy" />
+            </div>
+            <div class="about-text">
+                <span class="section-label">About Oran Distribution</span>
+                <h2>Your Strategic Sourcing Partner</h2>
+                <p>
+                    We are a privately operated international sourcing and procurement
+                    firm dedicated to connecting businesses with world-class manufacturers
+                    and trusted supply partners across global markets.
+                </p>
+                <p>
+                    With a strong focus on professionalism, reliability, and strategic
+                    partnerships, we help organizations streamline procurement, reduce
+                    operational risks, and access competitive production opportunities.
+                </p>
+                <ul class="about-list">
+                    <li>Manufacturer Identification &amp; Verification</li>
+                    <li>Supplier Negotiation &amp; Strategic Procurement</li>
+                    <li>Product Customization, Branding &amp; Private Label</li>
+                    <li>Production Coordination &amp; Quality Assurance</li>
+                    <li>Logistics Support &amp; Supply Chain Management</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== WHY US ====== -->
+<section class="why-us section-padding">
+    <div class="container">
+        <div class="text-center">
+            <span class="section-label">Why Partner With Us</span>
+            <h2 class="section-title">Built on Trust, Delivered with Excellence</h2>
+            <p class="section-sub mx-auto">
+                Four pillars that set Oran Distribution apart in global sourcing.
+            </p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="num">01</div>
+                <h4>Global Network</h4>
+                <p>Strong relationships with verified manufacturers and suppliers across key international markets.</p>
+            </div>
+            <div class="why-card">
+                <div class="num">02</div>
+                <h4>Strategic Expertise</h4>
+                <p>Deep procurement experience delivering tailored sourcing strategies aligned with your objectives.</p>
+            </div>
+            <div class="why-card">
+                <div class="num">03</div>
+                <h4>Quality & Reliability</h4>
+                <p>Rigorous supplier vetting and compliance checks for consistent, dependable outcomes.</p>
+            </div>
+            <div class="why-card">
+                <div class="num">04</div>
+                <h4>Confidential Service</h4>
+                <p>Discretion, professionalism, and integrity in every engagement — your interests come first.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== TESTIMONIAL ====== -->
+<section class="testimonial section-padding">
+    <div class="container">
+        <div class="text-center">
+            <span class="section-label" style="color:#93c5fd;">Testimonial</span>
+            <h2 class="section-title">What Our Partners Say</h2>
+            <p class="section-sub mx-auto" style="color:#94a3b8;">
+                Real feedback from businesses we've helped scale globally.
+            </p>
+        </div>
+        <div class="testimonial-card">
+            <div class="quote">
+                "Oran Distribution transformed our supply chain. Their team identified
+                manufacturers we would never have found on our own, negotiated pricing
+                that saved us 22% annually, and managed the entire quality assurance
+                process. They are an extension of our own operations now."
+            </div>
+            <div class="author">
+                <div class="author-avatar">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
+                         alt="Client photo" loading="lazy" />
+                </div>
+                <div class="author-info">
+                    <strong>Marcus Chen</strong>
+                    <span>VP of Operations, Northern Imports Ltd.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== INDUSTRIES ====== -->
+<section class="industries section-padding" id="industries">
+    <div class="container">
+        <div class="text-center">
+            <span class="section-label">Industries We Support</span>
+            <h2 class="section-title">Serving a Broad Range of Sectors</h2>
+            <p class="section-sub mx-auto">
+                From consumer goods to industrial equipment — our sourcing expertise
+                spans multiple industries.
+            </p>
+        </div>
+        <div class="industries-tags">
+            <span>Consumer Goods</span>
+            <span>Electronics</span>
+            <span>Fashion &amp; Apparel</span>
+            <span>Industrial Equipment</span>
+            <span>Home &amp; Lifestyle</span>
+            <span>Promotional Products</span>
+            <span>Health &amp; Wellness</span>
+            <span>Packaging Solutions</span>
+            <span>Automotive</span>
+            <span>Food &amp; Beverage</span>
+        </div>
+    </div>
+</section>
+
+<!-- ====== CONTACT ====== -->
+<section class="contact section-padding" id="contact">
+    <div class="container">
+        <div class="text-center">
+            <span class="section-label">Get in Touch</span>
+            <h2 class="section-title">Let's Build Your Sourcing Strategy</h2>
+            <p class="section-sub mx-auto">
+                Tell us about your project, and we'll connect you with the right
+                manufacturing partners.
+            </p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>We're Here to Help</h3>
+                <p>
+                    Whether you're looking for a new supplier, need help with product
+                    development, or want to optimize your existing supply chain —
+                    our team is ready to assist.
+                </p>
+                <div class="contact-detail">
+                    <div class="cd-icon">📍</div>
+                    <div>
+                        <strong>Office</strong>
+                        <span>Toronto, ON — Canada</span>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="cd-icon">📧</div>
+                    <div>
+                        <strong>Email</strong>
+                        <span>contact@orandistribution.com</span>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="cd-icon">📞</div>
+                    <div>
+                        <strong>Phone</strong>
+                        <span>+1 (647) 123-4567</span>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="cd-icon">🕐</div>
+                    <div>
+                        <strong>Hours</strong>
+                        <span>Mon–Fri: 9:00 AM – 6:00 PM EST</span>
+                    </div>
+                </div>
+            </div>
+
+            <form id="contact-form">
+                <div class="form-row">
+                    <div>
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" required />
+                    </div>
+                    <div>
+                        <label for="company">Company</label>
+                        <input type="text" id="company" />
+                    </div>
+                </div>
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" required />
+
+                <label for="interest">I'm interested in</label>
+                <select id="interest">
+                    <option>Product Sourcing</option>
+                    <option>Manufacturer Verification</option>
+                    <option>OEM / Private Label</option>
+                    <option>Quality Assurance</option>
+                    <option>Logistics &amp; Supply Chain</option>
+                    <option>General Inquiry</option>
+                </select>
+
+                <label for="message">Tell us about your project *</label>
+                <textarea id="message" required placeholder="Describe your sourcing needs, budget, timeline, or any specific requirements..."></textarea>
+
+                <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+                    Send Message →
+                </button>
+                <div class="form-status" id="form-status"></div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="logo">Oran<span>.</span></div>
+                <p>
+                    Oran Distribution Inc. is a privately operated international sourcing
+                    and procurement firm dedicated to connecting businesses with world-class
+                    manufacturers and trusted supply partners worldwide.
+                </p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#industries">Industries</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Product Sourcing</a></li>
+                    <li><a href="#services">Supplier Verification</a></li>
+                    <li><a href="#services">OEM &amp; Private Label</a></li>
+                    <li><a href="#services">Quality Assurance</a></li>
+                    <li><a href="#services">Logistics Support</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:contact@orandistribution.com">contact@orandistribution.com</a></li>
+                    <li><a href="tel:+16471234567">+1 (647) 123-4567</a></li>
+                    <li>Toronto, ON — Canada</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom">
+            &copy; 2026 Oran Distribution Inc. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<!-- ====== JS ====== -->
+<script>
+    // Mobile nav toggle
+    document.querySelector('.hamburger').addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('open');
+    });
+    // Close nav on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.remove('open');
+        });
+    });
+
+    // Shrink nav on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 60) {
+            nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.06)';
+        } else {
+            nav.style.boxShadow = 'none';
+        }
+    });
+
+    // Contact form handler
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (name && email && message) {
+                status.textContent = `Thank you, ${name}! We've received your inquiry and will respond within 24 hours.`;
+                status.style.color = '#16a34a';
+                form.reset();
+            } else {
+                status.textContent = 'Please fill in all required fields.';
+                status.style.color = '#dc2626';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
