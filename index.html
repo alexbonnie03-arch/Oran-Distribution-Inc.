@@ -1,715 +1,497 @@
-// ============================================
-// NEXT.JS 14 PROJECT STRUCTURE
-// ============================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oran Distribution Inc. — International Sourcing & Procurement</title>
+    <meta name="description" content="Oran Distribution Inc. — Trusted global sourcing, procurement strategy, and supply chain coordination for businesses worldwide." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/framer-motion@11.0.0/dist/framer-motion.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        * { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background: #F5F8FC; color: #0f172a; }
+        .glass { background: rgba(255,255,255,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+        .fade-in { animation: fadeUp 0.8s ease forwards; opacity: 0; }
+        @keyframes fadeUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .card-hover { transition: all 0.4s ease; }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 24px 48px -12px rgba(14,165,233,0.2); }
+    </style>
+</head>
+<body>
 
-// oran-distribution/
-// ├── app/
-// │   ├── about/
-// │   │   └── page.jsx
-// │   ├── globals.css
-// │   ├── layout.jsx
-// │   └── page.jsx
-// ├── app/
-// │   ├── globals.css
-// │   ├── layout.jsx
-// │   └── page.jsx
-// ├── public/
-// │   └── favicon.ico
-// ├── tailwind.config.js
-// ├── postcss.config.js
-// ├── next.config.js
-// ├── package.json
-// └── jsconfig.json
-
-// ============================================
-// package.json
-// ============================================
-
-// {
-//   "name": "oran-distribution",
-//   "version": "1.0.0",
-//   "private": true,
-//   "scripts": {
-//     "dev": "next dev",
-//     "build": "next build",
-//     "start": "next start",
-//     "lint": "next lint"
-//   },
-//   "dependencies": {
-//     "framer-motion": "^11.0.0",
-//     "next": "14.2.5",
-//     "react": "^18",
-//     "react-dom": "^18"
-//   },
-//   "devDependencies": {
-//     "autoprefixer": "^10.4.19",
-//     "postcss": "^8.4.39",
-//     "tailwindcss": "^3.4.7"
-//   }
-// }
-
-// ============================================
-// tailwind.config.js
-// ============================================
-
-// /** @type {import('tailwindcss').Config} */
-// module.exports = {
-//   content: [
-//     './pages/**/*.{js,ts,jsx,tsx,mdx}',
-//     './components/**/*.{js,ts,jsx,tsx,mdx}',
-//     './app/**/*.{js,ts,jsx,tsx,mdx}',
-//   ],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [],
-// }
-
-// ============================================
-// postcss.config.js
-// ============================================
-
-// module.exports = {
-//   plugins: {
-//     tailwindcss: {},
-//     autoprefixer: {},
-//   },
-// }
-
-// ============================================
-// next.config.js
-// ============================================
-
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {
-//   images: {
-//     remotePatterns: [
-//       {
-//         protocol: 'https',
-//         hostname: 'images.unsplash.com',
-//       },
-//     ],
-//   },
-// }
-
-// module.exports = nextConfig
-
-// ============================================
-// jsconfig.json
-// ============================================
-
-// {
-//   "compilerOptions": {
-//     "baseUrl": "."
-//   }
-// }
-
-// ============================================
-// app/layout.jsx
-// ============================================
-
-// export const metadata = {
-//   title: 'Oran Distribution Inc.',
-//   description: 'International sourcing and procurement solutions.',
-// }
-
-// import './globals.css'
-
-// export default function RootLayout({ children }) {
-//   return (
-//     <html lang="en">
-//       <body>{children}</body>
-//     </html>
-//   )
-// }
-
-// ============================================
-// app/globals.css
-// ============================================
-
-// @tailwind base;
-// @tailwind components;
-// @tailwind utilities;
-
-// html {
-//   scroll-behavior: smooth;
-// }
-
-// body {
-//   background: #F5F8FC;
-//   color: #0f172a;
-//   font-family: Arial, Helvetica, sans-serif;
-// }
-
-// * {
-//   box-sizing: border-box;
-// }
-
-// ============================================
-// app/page.jsx
-// Home Page
-
-// ============================================
-// app/about/page.jsx
-// ============================================
-
-// 'use client';
-
-// export default function AboutPage() {
-//   return (
-//     <div className="min-h-screen bg-white text-slate-900">
-//       <section className="bg-gradient-to-r from-cyan-700 to-sky-700 py-28 text-white">
-//         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-//           <p className="text-sm uppercase tracking-[0.3em] text-cyan-100">
-//             About Oran Distribution Inc.
-//           </p>
-//
-//           <h1 className="mt-6 max-w-4xl text-6xl font-bold leading-tight">
-//             Building trusted international sourcing partnerships.
-//           </h1>
-//
-//           <p className="mt-8 max-w-3xl text-xl leading-9 text-cyan-50">
-//             Oran Distribution Inc. is a privately operated sourcing and procurement company dedicated to helping businesses connect with reliable manufacturers and global supply partners.
-//           </p>
-//         </div>
-//       </section>
-//
-//       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-//         <div className="grid gap-16 lg:grid-cols-2">
-//           <div>
-//             <img
-//               src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400&auto=format&fit=crop"
-//               alt="Business meeting"
-//               className="rounded-[32px] shadow-xl"
-//             />
-//           </div>
-//
-//           <div>
-//             <h2 className="text-4xl font-bold text-slate-900">
-//               Our Approach
-//             </h2>
-//
-//             <p className="mt-8 text-lg leading-8 text-slate-600">
-//               We combine market intelligence, supplier relationships, procurement expertise, and production coordination to create reliable sourcing strategies tailored to our clients’ goals.
-//             </p>
-//
-//             <div className="mt-10 space-y-6">
-//               <div className="rounded-2xl bg-slate-50 p-6">
-//                 <h3 className="text-xl font-semibold text-slate-900">
-//                   Global Supplier Relationships
-//                 </h3>
-//                 <p className="mt-3 leading-7 text-slate-600">
-//                   Strong international manufacturing partnerships across multiple industries.
-//                 </p>
-//               </div>
-//
-//               <div className="rounded-2xl bg-slate-50 p-6">
-//                 <h3 className="text-xl font-semibold text-slate-900">
-//                   Strategic Procurement Support
-//                 </h3>
-//                 <p className="mt-3 leading-7 text-slate-600">
-//                   Customized sourcing strategies designed for operational efficiency and scalable growth.
-//                 </p>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-//     </div>
-//   )
-// }
-
-// ============================================
-// app/page.jsx
-// ============================================
-
-'use client';
-
-import { motion } from 'framer-motion';
-
-export default function OranDistributionWebsite() {
-  const services = [
-    {
-      title: 'Global Product Sourcing',
-      description:
-        'Access trusted manufacturers and reliable production partners through our extensive international network.',
-      image:
-        'https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1200&auto=format&fit=crop',
-    },
-    {
-      title: 'Strategic Procurement',
-      description:
-        'Tailored procurement strategies designed to optimize supply chains, reduce costs, and improve operational efficiency.',
-      image:
-        'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop',
-    },
-    {
-      title: 'Supply Chain Coordination',
-      description:
-        'Comprehensive oversight from supplier communication to logistics and quality assurance.',
-      image:
-        'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=1200&auto=format&fit=crop',
-    },
-  ];
-
-  const industries = [
-    'Consumer Goods',
-    'Electronics',
-    'Fashion & Apparel',
-    'Industrial Equipment',
-    'Health & Wellness',
-    'Packaging Solutions',
-  ];
-
-  const process = [
-    {
-      step: '01',
-      title: 'Consultation & Planning',
-      description:
-        'We begin by understanding your sourcing objectives, production requirements, target pricing, and long-term operational goals.',
-    },
-    {
-      step: '02',
-      title: 'Supplier Verification',
-      description:
-        'Our team evaluates manufacturers and suppliers through strategic screening, communication, and capability assessment.',
-    },
-    {
-      step: '03',
-      title: 'Production Coordination',
-      description:
-        'We coordinate timelines, logistics, quality expectations, and supplier communication to ensure smooth execution.',
-    },
-    {
-      step: '04',
-      title: 'Delivery & Ongoing Support',
-      description:
-        'Our relationship-driven approach ensures long-term procurement support and scalable sourcing partnerships.',
-    },
-  ];
-
-  return (
-    <div className="min-h-screen bg-[#F5F8FC] text-slate-900 font-sans">
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-lg">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900">
-              Oran Distribution Inc.
+<!-- ====== NAVIGATION ====== -->
+<header class="sticky top-0 z-50 border-b border-slate-200 glass">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+        <div>
+            <h1 class="text-xl font-bold tracking-tight text-slate-900 md:text-2xl">
+                Oran Distribution <span class="text-cyan-600">Inc.</span>
             </h1>
-            <p className="text-xs uppercase tracking-[0.3em] text-cyan-700">
-              International Sourcing & Procurement
+            <p class="text-[10px] uppercase tracking-[0.3em] text-cyan-700 md:text-xs">
+                International Sourcing & Procurement
             </p>
-          </div>
-
-          <nav className="hidden items-center gap-8 text-sm font-medium text-slate-700 md:flex">
-            <a href="/" className="transition hover:text-cyan-700">
-              Home
-            </a>
-            <a href="/about" className="transition hover:text-cyan-700">
-              Company
-            </a>
-            <a href="#services" className="transition hover:text-cyan-700">
-              Services
-            </a>
-            <a href="#about" className="transition hover:text-cyan-700">
-              About
-            </a>
-            <a href="#contact" className="transition hover:text-cyan-700">
-              Contact
-            </a>
-          </nav>
         </div>
-      </header>
 
-      <section className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-cyan-50">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(14,165,233,0.15),transparent_30%)]" />
+        <nav class="hidden items-center gap-8 text-sm font-medium text-slate-700 md:flex">
+            <a href="#home" class="transition hover:text-cyan-600">Home</a>
+            <a href="#services" class="transition hover:text-cyan-600">Services</a>
+            <a href="#process" class="transition hover:text-cyan-600">Process</a>
+            <a href="#about" class="transition hover:text-cyan-600">About</a>
+            <a href="#contact" class="rounded-full bg-cyan-600 px-5 py-2.5 text-white transition hover:bg-cyan-700">Contact</a>
+        </nav>
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 py-20 lg:grid-cols-2 lg:px-8 lg:py-28">
-          <div>
-            <div className="mb-6 inline-flex items-center rounded-full bg-cyan-100 px-4 py-2 text-sm font-medium text-cyan-800">
-              Trusted Global Supply Partnerships
+        <button id="menuBtn" class="block md:hidden text-2xl text-slate-700">☰</button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden border-t border-slate-100 bg-white px-6 py-4 md:hidden">
+        <a href="#home" class="block py-3 text-sm font-medium text-slate-700 border-b border-slate-100">Home</a>
+        <a href="#services" class="block py-3 text-sm font-medium text-slate-700 border-b border-slate-100">Services</a>
+        <a href="#process" class="block py-3 text-sm font-medium text-slate-700 border-b border-slate-100">Process</a>
+        <a href="#about" class="block py-3 text-sm font-medium text-slate-700 border-b border-slate-100">About</a>
+        <a href="#contact" class="block py-3 text-sm font-medium text-cyan-600">Contact</a>
+    </div>
+</header>
+
+<!-- ====== HERO ====== -->
+<section id="home" class="relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-cyan-50 pt-10">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(14,165,233,0.12),transparent_40%)]" />
+
+    <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-2 lg:px-8 lg:py-24">
+        <div class="fade-in">
+            <div class="mb-6 inline-flex items-center gap-2 rounded-full bg-cyan-100 px-4 py-2 text-sm font-medium text-cyan-800">
+                <span class="h-2 w-2 rounded-full bg-cyan-500 animate-pulse"></span>
+                Trusted Global Supply Partnerships
             </div>
 
-            <h2 className="max-w-2xl text-5xl font-bold leading-tight tracking-tight text-slate-900 md:text-6xl">
-              Smarter Global Sourcing Built Around Your Business.
+            <h2 class="max-w-2xl text-4xl font-bold leading-tight tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
+                Smarter Global Sourcing Built Around <span class="text-cyan-600">Your Business.</span>
             </h2>
 
-            <p className="mt-8 max-w-xl text-lg leading-8 text-slate-600">
-              Oran Distribution Inc. helps businesses simplify procurement, connect with trusted manufacturers, and scale operations through reliable international sourcing solutions.
+            <p class="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+                Oran Distribution Inc. helps businesses simplify procurement, connect with trusted manufacturers, and scale operations through reliable international sourcing solutions.
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a
-                href="#contact"
-                className="rounded-2xl bg-cyan-600 px-7 py-4 text-sm font-semibold text-white shadow-lg transition hover:bg-cyan-700"
-              >
-                Book a Consultation
-              </a>
-
-              <a
-                href="#services"
-                className="rounded-2xl border border-slate-300 bg-white px-7 py-4 text-sm font-semibold text-slate-800 transition hover:border-cyan-400 hover:text-cyan-700"
-              >
-                Explore Services
-              </a>
+            <div class="mt-8 flex flex-wrap gap-4">
+                <a href="#contact" class="rounded-2xl bg-cyan-600 px-7 py-4 text-sm font-semibold text-white shadow-lg transition hover:bg-cyan-700 hover:shadow-xl">
+                    Book a Consultation →
+                </a>
+                <a href="#services" class="rounded-2xl border border-slate-300 bg-white px-7 py-4 text-sm font-semibold text-slate-800 transition hover:border-cyan-400 hover:text-cyan-700">
+                    Explore Services
+                </a>
             </div>
-          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="overflow-hidden rounded-[36px] border border-white bg-white p-4 shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1400&auto=format&fit=crop"
-                alt="Cargo logistics"
-                className="h-[520px] w-full rounded-[28px] object-cover"
-              />
-
-              <div className="absolute bottom-10 left-10 right-10 rounded-3xl bg-white/90 p-6 shadow-xl backdrop-blur-md">
-                <div className="grid gap-4 md:grid-cols-3">
-                  <div className="rounded-2xl bg-slate-50 p-5 text-center">
-                    <h3 className="text-xl font-bold text-cyan-700">Global</h3>
-                    <p className="mt-2 text-sm text-slate-600">
-                      Supplier Network
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl bg-slate-50 p-5 text-center">
-                    <h3 className="text-xl font-bold text-cyan-700">Reliable</h3>
-                    <p className="mt-2 text-sm text-slate-600">
-                      Procurement Solutions
-                    </p>
-                  </div>
-
-                  <div className="rounded-2xl bg-slate-50 p-5 text-center">
-                    <h3 className="text-xl font-bold text-cyan-700">Efficient</h3>
-                    <p className="mt-2 text-sm text-slate-600">
-                      Supply Coordination
-                    </p>
-                  </div>
+            <!-- Trust badges -->
+            <div class="mt-10 flex flex-wrap gap-6">
+                <div class="flex items-center gap-2 text-sm text-slate-500">
+                    <span class="text-cyan-600 text-lg">✓</span> 50+ Global Markets
                 </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 pt-20 lg:px-8">
-        <div className="grid gap-8 rounded-[40px] bg-white p-10 shadow-xl lg:grid-cols-4">
-          <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-cyan-700">
-              Company Overview
-            </p>
-            <h3 className="mt-4 text-3xl font-bold text-slate-900">
-              Trusted international procurement expertise.
-            </h3>
-          </div>
-
-          <div>
-            <h4 className="text-4xl font-bold text-cyan-700">Global</h4>
-            <p className="mt-3 leading-7 text-slate-600">
-              Access to international manufacturers and sourcing opportunities.
-            </p>
-          </div>
-
-          <div>
-            <h4 className="text-4xl font-bold text-cyan-700">OEM</h4>
-            <p className="mt-3 leading-7 text-slate-600">
-              Private label and custom production coordination solutions.
-            </p>
-          </div>
-
-          <div>
-            <h4 className="text-4xl font-bold text-cyan-700">Reliable</h4>
-            <p className="mt-3 leading-7 text-slate-600">
-              Professional procurement support with transparent communication.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="services" className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-700">
-            Our Services
-          </p>
-
-          <h3 className="mt-4 text-4xl font-bold tracking-tight text-slate-900">
-            Professional sourcing support tailored for modern businesses.
-          </h3>
-
-          <p className="mt-6 text-lg leading-8 text-slate-600">
-            We partner with companies worldwide to create reliable sourcing strategies, strengthen supplier relationships, and support scalable growth.
-          </p>
-        </div>
-
-        <div className="mt-16 grid gap-8 lg:grid-cols-3">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
-            >
-              <img
-                src={service.image}
-                alt={service.title}
-                className="h-56 w-full object-cover"
-              />
-
-              <div className="p-8">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700">
-                  <span className="text-xl font-bold">0{index + 1}</span>
+                <div class="flex items-center gap-2 text-sm text-slate-500">
+                    <span class="text-cyan-600 text-lg">✓</span> 200+ Verified Suppliers
                 </div>
-
-                <h4 className="mt-6 text-2xl font-semibold text-slate-900">
-                  {service.title}
-                </h4>
-
-                <p className="mt-4 leading-8 text-slate-600">
-                  {service.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-slate-50 py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-700">
-              Our Process
-            </p>
-            <h3 className="mt-4 text-4xl font-bold tracking-tight text-slate-900">
-              A structured sourcing process designed for efficiency and long-term value.
-            </h3>
-          </div>
-
-          <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {process.map((item, index) => (
-              <div
-                key={index}
-                className="rounded-[28px] bg-white p-8 shadow-lg"
-              >
-                <span className="text-5xl font-bold text-cyan-100">
-                  {item.step}
-                </span>
-
-                <h4 className="mt-6 text-2xl font-semibold text-slate-900">
-                  {item.title}
-                </h4>
-
-                <p className="mt-4 leading-8 text-slate-600">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="about" className="bg-white py-24">
-        <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:px-8">
-          <div>
-            <img
-              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1400&auto=format&fit=crop"
-              alt="Professional workspace"
-              className="h-[500px] w-full rounded-[32px] object-cover shadow-xl"
-            />
-          </div>
-
-          <div className="flex flex-col justify-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-700">
-              Why Businesses Choose Us
-            </p>
-
-            <h3 className="mt-4 text-4xl font-bold tracking-tight text-slate-900">
-              A customer-focused sourcing partner committed to long-term success.
-            </h3>
-
-            <p className="mt-8 text-lg leading-8 text-slate-600">
-              We believe successful sourcing goes beyond finding suppliers. It requires trust, transparency, communication, and strategic coordination across every stage of the supply chain.
-            </p>
-
-            <div className="mt-10 grid gap-5">
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                <h4 className="text-lg font-semibold text-slate-900">
-                  Global Manufacturing Access
-                </h4>
-                <p className="mt-3 leading-7 text-slate-600">
-                  Strong international supplier relationships provide dependable production opportunities and competitive sourcing solutions.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                <h4 className="text-lg font-semibold text-slate-900">
-                  Professional & Transparent Service
-                </h4>
-                <p className="mt-3 leading-7 text-slate-600">
-                  We prioritize professionalism, confidentiality, and clear communication to create trusted long-term partnerships.
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-10 flex flex-wrap gap-3">
-              {industries.map((industry, index) => (
-                <span
-                  key={index}
-                  className="rounded-full bg-cyan-50 px-4 py-2 text-sm font-medium text-cyan-800"
-                >
-                  {industry}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <div className="overflow-hidden rounded-[40px] bg-gradient-to-r from-cyan-700 to-sky-700 shadow-2xl">
-          <div className="grid gap-16 px-8 py-16 lg:grid-cols-2 lg:px-16">
-            <div className="text-white">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-100">
-                Contact Us
-              </p>
-
-              <h3 className="mt-4 text-4xl font-bold leading-tight">
-                Let’s build a stronger global supply strategy together.
-              </h3>
-
-              <p className="mt-6 text-lg leading-8 text-cyan-50/90">
-                Reach out to discuss sourcing opportunities, supplier partnerships, OEM solutions, or procurement support for your business.
-              </p>
-
-              <img
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop"
-                alt="Corporate workspace"
-                className="mt-10 h-72 w-full rounded-[28px] object-cover shadow-xl"
-              />
-            </div>
-
-            <div className="rounded-[32px] bg-white p-8 shadow-xl">
-              <form className="space-y-6">
-                <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Enter your name"
-                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-slate-900 outline-none transition focus:border-cyan-500 focus:bg-white"
-                  />
+                <div class="flex items-center gap-2 text-sm text-slate-500">
+                    <span class="text-cyan-600 text-lg">✓</span> 99% Delivery Reliability
                 </div>
-
-                <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700">
-                    Business Email
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-slate-900 outline-none transition focus:border-cyan-500 focus:bg-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700">
-                    Company
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Company name"
-                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-slate-900 outline-none transition focus:border-cyan-500 focus:bg-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-2 block text-sm font-medium text-slate-700">
-                    Project Details
-                  </label>
-                  <textarea
-                    rows="5"
-                    placeholder="Tell us about your sourcing or procurement needs"
-                    className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-slate-900 outline-none transition focus:border-cyan-500 focus:bg-white"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full rounded-2xl bg-cyan-600 px-6 py-4 text-sm font-semibold text-white transition hover:bg-cyan-700"
-                >
-                  Submit Inquiry
-                </button>
-              </form>
             </div>
-          </div>
         </div>
-      </section>
 
-      <section className="bg-slate-900 py-24 text-white">
-        <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:px-8">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
-              Strategic Manufacturing Partnerships
-            </p>
+        <div class="fade-in delay-2 relative">
+            <div class="overflow-hidden rounded-[36px] border border-white bg-white p-3 shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1400&auto=format&fit=crop" alt="Cargo logistics" class="h-[400px] w-full rounded-[28px] object-cover lg:h-[520px]" />
 
-            <h3 className="mt-4 text-4xl font-bold leading-tight">
-              Supporting businesses with scalable procurement and sourcing solutions.
-            </h3>
-
-            <p className="mt-8 text-lg leading-8 text-slate-300">
-              Our mission is to help companies navigate global manufacturing markets with confidence through trusted supplier relationships, transparent communication, and operational excellence.
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-[28px] border border-white/10 bg-white/5 p-8">
-              <h4 className="text-2xl font-semibold">
-                Mission
-              </h4>
-              <p className="mt-4 leading-8 text-slate-300">
-                Empowering businesses worldwide through reliable sourcing solutions and strategic procurement support.
-              </p>
+                <div class="absolute bottom-8 left-8 right-8 rounded-2xl bg-white/90 p-5 shadow-xl backdrop-blur-md lg:bottom-10 lg:left-10 lg:right-10 lg:p-6">
+                    <div class="grid gap-3 md:grid-cols-3">
+                        <div class="rounded-2xl bg-slate-50 p-4 text-center">
+                            <h3 class="text-lg font-bold text-cyan-700 lg:text-xl">Global</h3>
+                            <p class="mt-1 text-xs text-slate-600 lg:text-sm">Supplier Network</p>
+                        </div>
+                        <div class="rounded-2xl bg-slate-50 p-4 text-center">
+                            <h3 class="text-lg font-bold text-cyan-700 lg:text-xl">Reliable</h3>
+                            <p class="mt-1 text-xs text-slate-600 lg:text-sm">Procurement</p>
+                        </div>
+                        <div class="rounded-2xl bg-slate-50 p-4 text-center">
+                            <h3 class="text-lg font-bold text-cyan-700 lg:text-xl">Efficient</h3>
+                            <p class="mt-1 text-xs text-slate-600 lg:text-sm">Supply Chain</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div className="rounded-[28px] border border-white/10 bg-white/5 p-8">
-              <h4 className="text-2xl font-semibold">
-                Vision
-              </h4>
-              <p className="mt-4 leading-8 text-slate-300">
-                To become a globally recognized sourcing and procurement partner known for professionalism and innovation.
-              </p>
-            </div>
-          </div>
         </div>
-      </section>
-
-      <footer className="border-t border-slate-200 bg-white py-10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 text-sm text-slate-600 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <div>
-            <h4 className="text-base font-semibold text-slate-900">
-              Oran Distribution Inc.
-            </h4>
-            <p className="mt-2 max-w-md leading-7">
-              Delivering trusted international sourcing, procurement strategy, and supply chain coordination for businesses worldwide.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-6">
-            <a href="#services" className="transition hover:text-cyan-700">
-              Services
-            </a>
-            <a href="#about" className="transition hover:text-cyan-700">
-              About
-            </a>
-            <a href="#contact" className="transition hover:text-cyan-700">
-              Contact
-            </a>
-          </div>
-        </div>
-      </footer>
     </div>
-  );
-}
+</section>
+
+<!-- ====== COMPANY OVERVIEW STRIP ====== -->
+<section class="mx-auto max-w-7xl px-6 -mt-6 relative z-10 lg:px-8">
+    <div class="grid gap-6 rounded-[32px] bg-white p-8 shadow-xl md:grid-cols-4 lg:p-10">
+        <div>
+            <p class="text-xs uppercase tracking-[0.3em] text-cyan-700 font-semibold">Company Overview</p>
+            <h3 class="mt-3 text-2xl font-bold text-slate-900 lg:text-3xl">Trusted international procurement expertise.</h3>
+        </div>
+        <div class="md:border-l md:border-slate-100 md:pl-8">
+            <h4 class="text-3xl font-bold text-cyan-700 lg:text-4xl">Global</h4>
+            <p class="mt-2 leading-7 text-slate-600">Access to international manufacturers and sourcing opportunities across key markets.</p>
+        </div>
+        <div class="md:border-l md:border-slate-100 md:pl-8">
+            <h4 class="text-3xl font-bold text-cyan-700 lg:text-4xl">OEM</h4>
+            <p class="mt-2 leading-7 text-slate-600">Private label and custom production coordination solutions tailored to your specs.</p>
+        </div>
+        <div class="md:border-l md:border-slate-100 md:pl-8">
+            <h4 class="text-3xl font-bold text-cyan-700 lg:text-4xl">Reliable</h4>
+            <p class="mt-2 leading-7 text-slate-600">Professional procurement support with transparent communication and ethics.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ====== SERVICES ====== -->
+<section id="services" class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+    <div class="max-w-3xl fade-in">
+        <p class="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-700">Our Services</p>
+        <h3 class="mt-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Professional sourcing support tailored for modern businesses.</h3>
+        <p class="mt-6 text-lg leading-8 text-slate-600">We partner with companies worldwide to create reliable sourcing strategies, strengthen supplier relationships, and support scalable growth across every stage of production.</p>
+    </div>
+
+    <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Service 1 -->
+        <div class="overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-lg card-hover fade-in delay-1">
+            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1200&auto=format&fit=crop" alt="Global Product Sourcing" class="h-52 w-full object-cover" />
+            <div class="p-8">
+                <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700">
+                    <span class="text-xl font-bold">01</span>
+                </div>
+                <h4 class="mt-6 text-2xl font-semibold text-slate-900">Global Product Sourcing</h4>
+                <p class="mt-4 leading-8 text-slate-600">Access trusted manufacturers and reliable production partners through our extensive international network spanning consumer goods, electronics, industrial equipment, and more.</p>
+                <ul class="mt-5 space-y-2 text-sm text-slate-500">
+                    <li class="flex items-center gap-2">• Supplier identification & vetting</li>
+                    <li class="flex items-center gap-2">• Cross-border market access</li>
+                    <li class="flex items-center gap-2">• Competitive pricing analysis</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-lg card-hover fade-in delay-2">
+            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop" alt="Strategic Procurement" class="h-52 w-full object-cover" />
+            <div class="p-8">
+                <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700">
+                    <span class="text-xl font-bold">02</span>
+                </div>
+                <h4 class="mt-6 text-2xl font-semibold text-slate-900">Strategic Procurement</h4>
+                <p class="mt-4 leading-8 text-slate-600">Tailored procurement strategies designed to optimize supply chains, reduce costs, and improve operational efficiency across your entire sourcing lifecycle.</p>
+                <ul class="mt-5 space-y-2 text-sm text-slate-500">
+                    <li class="flex items-center gap-2">• Supplier negotiation & contracts</li>
+                    <li class="flex items-center gap-2">• Cost optimization strategies</li>
+                    <li class="flex items-center gap-2">• Risk assessment & mitigation</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-lg card-hover fade-in delay-3">
+            <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=1200&auto=format&fit=crop" alt="Supply Chain Coordination" class="h-52 w-full object-cover" />
+            <div class="p-8">
+                <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-100 text-cyan-700">
+                    <span class="text-xl font-bold">03</span>
+                </div>
+                <h4 class="mt-6 text-2xl font-semibold text-slate-900">Supply Chain Coordination</h4>
+                <p class="mt-4 leading-8 text-slate-600">Comprehensive oversight from supplier communication to logistics and quality assurance, ensuring seamless execution from factory floor to final delivery.</p>
+                <ul class="mt-5 space-y-2 text-sm text-slate-500">
+                    <li class="flex items-center gap-2">• End-to-end logistics management</li>
+                    <li class="flex items-center gap-2">• Quality assurance & compliance</li>
+                    <li class="flex items-center gap-2">• Production timeline coordination</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== PROCESS ====== -->
+<section id="process" class="bg-slate-50 py-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="max-w-3xl fade-in">
+            <p class="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-700">Our Process</p>
+            <h3 class="mt-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">A structured sourcing process designed for efficiency and long-term value.</h3>
+            <p class="mt-6 text-lg leading-8 text-slate-600">Every engagement follows a proven four-stage framework that ensures clarity, accountability, and measurable results.</p>
+        </div>
+
+        <div class="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-[28px] bg-white p-8 shadow-lg fade-in delay-1 card-hover">
+                <span class="text-5xl font-bold text-cyan-100">01</span>
+                <h4 class="mt-6 text-xl font-semibold text-slate-900 lg:text-2xl">Consultation & Planning</h4>
+                <p class="mt-4 leading-8 text-slate-600">We begin by understanding your sourcing objectives, production requirements, target pricing, and long-term operational goals to build a customized roadmap.</p>
+            </div>
+            <div class="rounded-[28px] bg-white p-8 shadow-lg fade-in delay-2 card-hover">
+                <span class="text-5xl font-bold text-cyan-100">02</span>
+                <h4 class="mt-6 text-xl font-semibold text-slate-900 lg:text-2xl">Supplier Verification</h4>
+                <p class="mt-4 leading-8 text-slate-600">Our team evaluates manufacturers through strategic screening, capability assessment, compliance checks, and direct communication to ensure reliability.</p>
+            </div>
+            <div class="rounded-[28px] bg-white p-8 shadow-lg fade-in delay-3 card-hover">
+                <span class="text-5xl font-bold text-cyan-100">03</span>
+                <h4 class="mt-6 text-xl font-semibold text-slate-900 lg:text-2xl">Production Coordination</h4>
+                <p class="mt-4 leading-8 text-slate-600">We coordinate timelines, quality expectations, logistics planning, and supplier communication to ensure smooth execution from sampling through bulk production.</p>
+            </div>
+            <div class="rounded-[28px] bg-white p-8 shadow-lg fade-in delay-4 card-hover">
+                <span class="text-5xl font-bold text-cyan-100">04</span>
+                <h4 class="mt-6 text-xl font-semibold text-slate-900 lg:text-2xl">Delivery & Ongoing Support</h4>
+                <p class="mt-4 leading-8 text-slate-600">Our relationship-driven approach ensures long-term procurement support, continuous improvement, and scalable sourcing partnerships as your business grows.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== ABOUT / WHY US ====== -->
+<section id="about" class="bg-white py-24">
+    <div class="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
+        <div class="fade-in">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1400&auto=format&fit=crop" alt="Professional workspace" class="h-[400px] w-full rounded-[32px] object-cover shadow-xl lg:h-[500px]" />
+        </div>
+
+        <div class="flex flex-col justify-center fade-in delay-2">
+            <p class="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-700">Why Businesses Choose Us</p>
+            <h3 class="mt-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">A customer-focused sourcing partner committed to long-term success.</h3>
+            <p class="mt-6 text-lg leading-8 text-slate-600">We believe successful sourcing goes beyond finding suppliers. It requires trust, transparency, communication, and strategic coordination across every stage of the supply chain.</p>
+
+            <div class="mt-8 grid gap-4">
+                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                    <h4 class="text-lg font-semibold text-slate-900">🌍 Global Manufacturing Access</h4>
+                    <p class="mt-2 leading-7 text-slate-600">Strong international supplier relationships provide dependable production opportunities and competitive sourcing solutions across multiple continents.</p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                    <h4 class="text-lg font-semibold text-slate-900">🤝 Professional & Transparent Service</h4>
+                    <p class="mt-2 leading-7 text-slate-600">We prioritize professionalism, confidentiality, and clear communication to create trusted long-term partnerships built on integrity.</p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                    <h4 class="text-lg font-semibold text-slate-900">✅ Quality Assurance & Compliance</h4>
+                    <p class="mt-2 leading-7 text-slate-600">Rigorous quality control protocols and compliance monitoring ensure your products meet the highest international standards.</p>
+                </div>
+            </div>
+
+            <!-- Industries tags -->
+            <div class="mt-8">
+                <p class="text-sm font-semibold text-slate-700 mb-3">Industries We Serve:</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="rounded-full bg-cyan-50 px-4 py-2 text-sm font-medium text-cyan-800">Consumer Goods</span>
+                    <span class="rounded-full bg-cyan-50 px-4 py-2 text-sm font-medium text-cyan-800">Electronics</span>
+                    <span class="rounded-full bg-cyan-50 px-4 py-2 text-sm font-medium text-cyan-800">Fashion & Apparel</span>
+                    <span class="rounded-full bg-cyan-50 px-4 py-2 text-sm font-medium text-cyan-800">Industrial Equipment</span>
+                    <span class="rounded-full bg-cyan-50 px-4 py-2 text-sm font-medium text-cyan-800">Health & Wellness</span>
+                    <span class="rounded-full bg-cyan-50 px-4 py-2 text-sm font-medium text-cyan-800">Packaging Solutions</span>
+                    <span class="rounded-full bg-cyan-50 px-4 py-2 text-sm font-medium text-cyan-800">Home & Lifestyle</span>
+                    <span class="rounded-full bg-cyan-50 px-4 py-2 text-sm font-medium text-cyan-800">Promotional Products</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== TESTIMONIAL ====== -->
+<section class="py-24 bg-gradient-to-br from-sky-50 to-white">
+    <div class="mx-auto max-w-4xl px-6 text-center lg:px-8">
+        <p class="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-700">Client Testimonial</p>
+        <div class="mt-12 rounded-[32px] bg-white p-10 shadow-xl border border-slate-100 lg:p-14 fade-in">
+            <span class="text-6xl text-cyan-200 font-serif">"</span>
+            <p class="mt-4 text-xl leading-9 text-slate-700 italic lg:text-2xl">
+                Oran Distribution transformed our entire supply chain. Their team identified manufacturers we never would have found on our own, negotiated pricing that saved us 22% annually, and managed every stage of quality assurance. They are now an extension of our operations.
+            </p>
+            <div class="mt-8 flex items-center justify-center gap-4">
+                <div class="h-14 w-14 rounded-full overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Client" class="h-full w-full object-cover" />
+                </div>
+                <div class="text-left">
+                    <strong class="block text-slate-900">Marcus Chen</strong>
+                    <span class="text-sm text-slate-500">VP of Operations, Northern Imports Ltd.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== CONTACT ====== -->
+<section id="contact" class="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+    <div class="overflow-hidden rounded-[40px] bg-gradient-to-r from-cyan-700 to-sky-700 shadow-2xl">
+        <div class="grid gap-12 px-8 py-12 lg:grid-cols-2 lg:px-16 lg:py-16">
+            <div class="text-white fade-in">
+                <p class="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-100">Contact Us</p>
+                <h3 class="mt-4 text-3xl font-bold leading-tight md:text-4xl">Let's build a stronger global supply strategy together.</h3>
+                <p class="mt-6 text-lg leading-8 text-cyan-50/90">Reach out to discuss sourcing opportunities, supplier partnerships, OEM solutions, or procurement support for your business. Our team typically responds within 24 hours.</p>
+
+                <div class="mt-8 space-y-4">
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl">📧</span>
+                        <span class="text-cyan-50">contact@orandistribution.com</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl">📞</span>
+                        <span class="text-cyan-50">+1 (647) 123-4567</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl">📍</span>
+                        <span class="text-cyan-50">Toronto, ON — Canada</span>
+                    </div>
+                </div>
+
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop" alt="Corporate workspace" class="mt-8 h-52 w-full rounded-[28px] object-cover shadow-xl lg:h-64" />
+            </div>
+
+            <div class="rounded-[32px] bg-white p-8 shadow-xl fade-in delay-2">
+                <form id="contactForm" class="space-y-5">
+                    <div>
+                        <label class="mb-1.5 block text-sm font-medium text-slate-700">Full Name *</label>
+                        <input id="formName" type="text" placeholder="Enter your name" required class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 py-3.5 text-slate-900 outline-none transition focus:border-cyan-500 focus:bg-white" />
+                    </div>
+                    <div>
+                        <label class="mb-1.5 block text-sm font-medium text-slate-700">Business Email *</label>
+                        <input id="formEmail" type="email" placeholder="Enter your email" required class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 py-3.5 text-slate-900 outline-none transition focus:border-cyan-500 focus:bg-white" />
+                    </div>
+                    <div>
+                        <label class="mb-1.5 block text-sm font-medium text-slate-700">Company</label>
+                        <input id="formCompany" type="text" placeholder="Company name" class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 py-3.5 text-slate-900 outline-none transition focus:border-cyan-500 focus:bg-white" />
+                    </div>
+                    <div>
+                        <label class="mb-1.5 block text-sm font-medium text-slate-700">What are you interested in?</label>
+                        <select id="formInterest" class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 py-3.5 text-slate-900 outline-none transition focus:border-cyan-500 focus:bg-white">
+                            <option>Product Sourcing</option>
+                            <option>Manufacturer Verification</option>
+                            <option>OEM / Private Label</option>
+                            <option>Quality Assurance</option>
+                            <option>Logistics & Supply Chain</option>
+                            <option>General Inquiry</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="mb-1.5 block text-sm font-medium text-slate-700">Project Details *</label>
+                        <textarea id="formMessage" rows="4" placeholder="Tell us about your sourcing or procurement needs..." required class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 py-3.5 text-slate-900 outline-none transition focus:border-cyan-500 focus:bg-white"></textarea>
+                    </div>
+                    <button type="submit" class="w-full rounded-2xl bg-cyan-600 px-6 py-4 text-sm font-semibold text-white transition hover:bg-cyan-700 shadow-lg">
+                        Submit Inquiry →
+                    </button>
+                    <p id="formStatus" class="text-sm font-medium text-center"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== MISSION / VISION ====== -->
+<section class="bg-slate-900 py-20 text-white">
+    <div class="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
+        <div class="fade-in">
+            <p class="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Strategic Manufacturing Partnerships</p>
+            <h3 class="mt-4 text-3xl font-bold leading-tight md:text-4xl">Supporting businesses with scalable procurement and sourcing solutions.</h3>
+            <p class="mt-6 text-lg leading-8 text-slate-300">Our mission is to help companies navigate global manufacturing markets with confidence through trusted supplier relationships, transparent communication, and operational excellence.</p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2 fade-in delay-2">
+            <div class="rounded-[28px] border border-white/10 bg-white/5 p-8 card-hover">
+                <h4 class="text-2xl font-semibold">🎯 Mission</h4>
+                <p class="mt-4 leading-8 text-slate-300">Empowering businesses worldwide through reliable sourcing solutions and strategic procurement support that drives growth and long-term success.</p>
+            </div>
+            <div class="rounded-[28px] border border-white/10 bg-white/5 p-8 card-hover">
+                <h4 class="text-2xl font-semibold">🔭 Vision</h4>
+                <p class="mt-4 leading-8 text-slate-300">To become a globally recognized sourcing and procurement partner known for professionalism, innovation, and trusted international business relationships.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="border-t border-slate-200 bg-white py-12">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="grid gap-8 md:grid-cols-3">
+            <div>
+                <h4 class="text-lg font-bold text-slate-900">Oran Distribution <span class="text-cyan-600">Inc.</span></h4>
+                <p class="mt-3 max-w-sm text-sm leading-7 text-slate-500">Delivering trusted international sourcing, procurement strategy, and supply chain coordination for businesses worldwide.</p>
+            </div>
+            <div>
+                <h5 class="text-sm font-semibold text-slate-900 mb-4">Quick Links</h5>
+                <ul class="space-y-2 text-sm text-slate-500">
+                    <li><a href="#home" class="hover:text-cyan-600 transition">Home</a></li>
+                    <li><a href="#services" class="hover:text-cyan-600 transition">Services</a></li>
+                    <li><a href="#process" class="hover:text-cyan-600 transition">Process</a></li>
+                    <li><a href="#about" class="hover:text-cyan-600 transition">About</a></li>
+                    <li><a href="#contact" class="hover:text-cyan-600 transition">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-sm font-semibold text-slate-900 mb-4">Contact</h5>
+                <ul class="space-y-2 text-sm text-slate-500">
+                    <li>contact@orandistribution.com</li>
+                    <li>+1 (647) 123-4567</li>
+                    <li>Toronto, ON — Canada</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-10 border-t border-slate-100 pt-8 text-center text-sm text-slate-400">
+            &copy; 2026 Oran Distribution Inc. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<!-- ====== JAVASCRIPT ====== -->
+<script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn) {
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuBtn.textContent = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
+        });
+    }
+
+    // Close mobile menu on link click
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuBtn.textContent = '☰';
+        });
+    });
+
+    // Contact form handler
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('formName').value.trim();
+            const email = document.getElementById('formEmail').value.trim();
+            const message = document.getElementById('formMessage').value.trim();
+
+            if (name && email && message) {
+                status.textContent = `✅ Thank you, ${name}! We've received your inquiry and will respond within 24 hours.`;
+                status.style.color = '#16a34a';
+                form.reset();
+            } else {
+                status.textContent = '⚠️ Please fill in all required fields.';
+                status.style.color = '#dc2626';
+            }
+        });
+    }
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+        el.style.animationPlayState = 'paused';
+        observer.observe(el);
+    });
+
+    // Re-trigger animations on load
+    window.addEventListener('load', () => {
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.animationPlayState = 'running';
+        });
+    });
+</script>
+
+</body>
+</html>
